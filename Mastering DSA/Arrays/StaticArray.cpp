@@ -7,14 +7,14 @@ int main()
 
     for (int i = 0; i < 5; i++)
     {
-        printf("%d\t", arr + i);
+        printf("%u\t", (arr + i));
     }
 
     cout << endl;
     
     for (int i = 0; i < 5; i++)
     {
-        printf("   %d\t", arr[i]);
+        printf("   %d\t", i[arr]);
     }
 
     return 0;
