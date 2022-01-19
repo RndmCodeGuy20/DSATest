@@ -1,0 +1,109 @@
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+    int data ;
+    struct node * link;
+
+}*second,*third,*ptr;
+void create(struct node *head){
+    second = (struct node *) malloc(sizeof(struct node));
+    third = (struct node *) malloc(sizeof(struct node));
+    ptr = (struct node *) malloc(sizeof(struct node));
+
+    head -> data = 14;
+    head->link =second;
+    second -> data = 15;
+    second->link = third;
+    third -> data = 16;
+    third->link = ptr;
+    ptr -> data = 17;
+    ptr->link = NULL;
+
+}
+void traversel(struct node *head){
+while (head != NULL)
+{
+    printf(" %d ",head->data);
+    head = head->link;
+}
+}
+
+void deletelastele(struct node *head){
+    while (head->link != NULL)
+    {
+        printf(" %d ",head->data);
+        head = head->link;
+    }
+}
+void deletefrontele(struct node *head){
+    while (head != NULL)
+    {
+        printf(" %d ",head->data);
+        head = head -> link;
+    }
+    
+}
+void insertafter14(struct node *head){
+    struct node *insertele,*temp;
+    insertele = (struct node*) malloc(sizeof(struct node));
+    insertele->data = 10;
+    while (head != NULL)
+    {
+        if (head -> data == 14)
+        {
+            temp = head->link;
+            head->link = insertele;
+            head->link->link = temp;
+        }
+        head = head->link;
+    }
+}
+void insertbeforeindex(struct node *head){
+    struct node *insertele,*temp;
+    insertele = (struct node*) malloc(sizeof(struct node));
+    int ele1,ele2;
+    printf("enter element in list before which you want to enter new node");
+    scanf("%d",&ele1);
+    printf("enter element you want to enter in new node");
+    scanf("%d",&ele2);
+
+    insertele->data = ele2;
+    while (head != NULL)
+    {
+        if (head->link->data == ele1)
+        {
+            temp = head->link;
+            head->link = insertele;
+            head->link->link = temp;
+            printf("\n Elements of linked list are:    ");
+            traversel(head);
+            break;
+        }
+        head = head->link;
+    }
+}
+int main(int argc, char const *argv[])
+{
+    struct node *head;
+    head = (struct node *) malloc(sizeof(struct node));
+    create(head);
+
+    printf(" Elements of linked list are:    ");
+    traversel(head);
+
+    printf("\n Deleating element from the list ");
+    deletelastele(head);
+    
+    printf("\n Deleating element from front    ");
+    deletefrontele(head->link);
+
+    printf("\n Inserting element after 14 ");
+    insertafter14(head);
+    printf("\n Elements of linked list are:    ");
+    traversel(head);
+    
+    printf("\n Inserting element before index ");
+    insertbeforeindex(head);
+    
+    return 0;
+}
