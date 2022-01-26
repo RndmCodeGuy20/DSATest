@@ -19,6 +19,13 @@ int main()
         printf("%d\t", *(ptr + i));
     }
 
+    cout << "\n\n";
+
+    for (int i = 0; i < 5; i++)
+    {
+        printf("%d\t", ptr[i]);
+    }
+
     //$ In C we can assign memory in heap with the use of `malloc` function.
     cout << "\n\n";
 
@@ -42,3 +49,12 @@ int main()
 
     return 0;
 }
+
+/**
+ * 3       5       0       0       1
+ *
+ * 3       5       0       0       1
+ *
+ * 3       5       2       1       1
+ *
+ */
