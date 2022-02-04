@@ -65,18 +65,18 @@ int main()
 
     head = createList(head, Array, 7);
 
-    head = ptr;
-    head = ptr2;
+    // head = ptr;
+    // head = ptr2;
 
-    ptr2 = ptr2->next;
-    ptr2 = ptr2->next;
+    // ptr2 = ptr2->next;
+    // ptr2 = ptr2->next;
 
-    while (ptr->next != NULL)
-    {
-        ptr = ptr->next;
-    }
+    // while (ptr->next != NULL)
+    // {
+    //     ptr = ptr->next;
+    // }
 
-    ptr->next = ptr2;
+    // ptr->next = ptr2;
 
     if (checkLoop(head))
     {
