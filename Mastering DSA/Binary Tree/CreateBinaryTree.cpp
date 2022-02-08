@@ -59,12 +59,44 @@ void preorder(struct node *ptr)
     }
 }
 
+void inorder(struct node *ptr)
+{
+    if (ptr != NULL)
+    {
+        inorder(ptr->LC);
+        printf("%d   ", ptr->data);
+        inorder(ptr->RC);
+    }
+}
+
+void postorder(struct node *ptr)
+{
+    if (ptr != NULL)
+    {
+        postorder(ptr->LC);
+        postorder(ptr->RC);
+        printf("%d   ", ptr->data);
+    }
+}
+
 int main()
 {
     TreeCreate();
 
     printf("Tree nodes in preorder sequence are : \n");
     preorder(root);
+
+    cout << "\n\n";
+
+    printf("Tree nodes in in-order sequence are : \n");
+    inorder(root);
+
+    cout << "\n\n";
+
+    printf("Tree nodes in postorder sequence are : \n");
+    postorder(root);
+
+    cout << "\n\n";
 
     return 0;
 }
