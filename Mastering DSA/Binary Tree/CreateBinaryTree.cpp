@@ -224,8 +224,6 @@ int main()
 {
     TreeCreate();
 
-    delEl(root, 5);
-
     printf("Tree nodes in preorder sequence are : \n");
     preorder(root);
 
@@ -240,6 +238,13 @@ int main()
     postorder(root);
 
     cout << "\n\n";
+
+    struct node *succ, *pred;
+
+    succ = InorderSucc(root);
+    pred = InorderPred(root);
+
+    printf("Pred : %d\nSucc : %d", succ->data, pred->data);
 
     return 0;
 }
