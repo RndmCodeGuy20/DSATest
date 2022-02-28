@@ -49,65 +49,65 @@ void TreeCreate()
     }
 }
 
-struct node *searchEl(struct node *ptr, int key)
-{
-    ptr = root;
+// struct node *searchEl(struct node *ptr, int key)
+// {
+//     ptr = root;
 
-    while (ptr != root)
-    {
-        if (key == ptr->data)
-        {
-            return ptr;
-        }
-        else if (key < ptr->data)
-        {
-            ptr = ptr->LC;
-        }
-        else
-        {
-            ptr = ptr->RC;
-        }
-    }
+//     while (ptr != root)
+//     {
+//         if (key == ptr->data)
+//         {
+//             return ptr;
+//         }
+//         else if (key < ptr->data)
+//         {
+//             ptr = ptr->LC;
+//         }
+//         else
+//         {
+//             ptr = ptr->RC;
+//         }
+//     }
 
-    return NULL;
-}
+//     return NULL;
+// }
 
-void insertEl(struct node *ptr, int key)
-{
-    struct node *trail = NULL;
+// void insertEl(struct node *ptr, int key)
+// {
+//     struct node *trail = NULL;
 
-    while (ptr != NULL)
-    {
-        trail = ptr;
+//     while (ptr != NULL)
+//     {
+//         trail = ptr;
 
-        if (key == ptr->data)
-        {
-            return;
-        }
-        else if (key < ptr->data)
-        {
-            ptr = ptr->LC;
-        }
-        else
-        {
-            ptr = ptr->RC;
-        }
-    }
+//         if (key == ptr->data)
+//         {
+//             return;
+//         }
+//         else if (key < ptr->data)
+//         {
+//             ptr = ptr->LC;
+//         }
+//         else
+//         {
+//             ptr = ptr->RC;
+//         }
+//     }
 
-    struct node *newNode = (struct node *)malloc(sizeof(struct node));
+//     struct node *newNode = (struct node *)malloc(sizeof(struct node));
 
-    newNode->LC = newNode->RC = NULL;
-    newNode->data = key;
+//     newNode->LC = newNode->RC = NULL;
+//     newNode->data = key;
 
-    if (key < trail->data)
-    {
-        trail->LC = newNode;
-    }
-    else
-    {
-        trail->RC = newNode;
-    }
-}
+//     if (key < trail->data)
+//     {
+//         trail->LC = newNode;
+//     }
+//     else
+//     {
+//         trail->RC = newNode;
+//     }
+// }
 
 int Height(struct node *ptr)
 {
@@ -126,6 +126,8 @@ int Height(struct node *ptr)
 
 struct node *InorderPred(struct node *ptr)
 {
+    ptr = ptr->LC;
+
     while (ptr != NULL && ptr->RC != NULL)
     {
         ptr = ptr->RC;
@@ -136,6 +138,8 @@ struct node *InorderPred(struct node *ptr)
 
 struct node *InorderSucc(struct node *ptr)
 {
+    ptr = ptr->RC;
+
     while (ptr != NULL && ptr->LC != NULL)
     {
         ptr = ptr->LC;
@@ -144,51 +148,51 @@ struct node *InorderSucc(struct node *ptr)
     return ptr;
 }
 
-struct node *delEl(struct node *ptr, int key)
-{
-    struct node *q;
+// struct node *delEl(struct node *ptr, int key)
+// {
+//     struct node *q;
 
-    if (ptr == NULL)
-    {
-        return NULL;
-    }
-    if (ptr->LC == NULL && ptr->RC == NULL)
-    {
-        if (ptr == root)
-        {
-            root = NULL;
-        }
-        free(ptr);
+//     if (ptr == NULL)
+//     {
+//         return NULL;
+//     }
+//     if (ptr->LC == NULL && ptr->RC == NULL)
+//     {
+//         if (ptr == root)
+//         {
+//             root = NULL;
+//         }
+//         free(ptr);
 
-        return NULL;
-    }
+//         return NULL;
+//     }
 
-    if (key < ptr->data)
-    {
-        ptr->LC = delEl(ptr->LC, key);
-    }
-    else if (key > ptr->data)
-    {
-        ptr->RC = delEl(ptr->RC, key);
-    }
-    else
-    {
-        if (Height(ptr->LC) > Height(ptr->RC))
-        {
-            q = InorderPred(ptr->LC);
-            ptr->data = q->data;
-            ptr->LC = delEl(ptr->LC, q->data);
-        }
-        else
-        {
-            q = InorderSucc(ptr->RC);
-            ptr->data = q->data;
-            ptr->RC = delEl(ptr->RC, q->data);
-        }
-    }
+//     if (key < ptr->data)
+//     {
+//         ptr->LC = delEl(ptr->LC, key);
+//     }
+//     else if (key > ptr->data)
+//     {
+//         ptr->RC = delEl(ptr->RC, key);
+//     }
+//     else
+//     {
+//         if (Height(ptr->LC) > Height(ptr->RC))
+//         {
+//             q = InorderPred(ptr->LC);
+//             ptr->data = q->data;
+//             ptr->LC = delEl(ptr->LC, q->data);
+//         }
+//         else
+//         {
+//             q = InorderSucc(ptr->RC);
+//             ptr->data = q->data;
+//             ptr->RC = delEl(ptr->RC, q->data);
+//         }
+//     }
 
-    return ptr;
-}
+//     return ptr;
+// }
 
 void preorder(struct node *ptr)
 {
@@ -244,7 +248,7 @@ int main()
     succ = InorderSucc(root);
     pred = InorderPred(root);
 
-    printf("Pred : %d\nSucc : %d", succ->data, pred->data);
+    printf("Pred : %d\nSucc : %d", pred->data, succ->data);
 
     return 0;
 }
