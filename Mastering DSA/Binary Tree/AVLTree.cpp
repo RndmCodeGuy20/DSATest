@@ -97,12 +97,22 @@ struct node *RLRot(struct node *ptr)
     struct node *ptrR = ptr->RC;
     struct node *ptrRL = ptrR->LC;
 
-    
+    ptr->RC = ptrRL->LC;
+    ptrR->LC = ptrRL->RC;
 
     ptrRL->LC = ptr;
     ptrRL->RC = ptrR;
 
-    return NULL;
+    ptrR->height = nodeHeight(ptrR);
+    ptr->height = nodeHeight(ptr);
+    ptrRL->height = nodeHeight(ptrRL);
+
+    if (root == ptr)
+    {
+        root = ptrRL;
+    }
+
+    return ptrRL;
 }
 
 struct node *insertEl(struct node *ptr, int key)
@@ -152,17 +162,21 @@ struct node *insertEl(struct node *ptr, int key)
 
 int main()
 {
-    // root = insertEl(root, 50);
-    // insertEl(root, 10);
-    // insertEl(root, 20); //! LR Rotation
+    root = insertEl(root, 50);
+    insertEl(root, 10);
+    insertEl(root, 20); //! LR Rotation
 
     // root = insertEl(root, 10);
     // insertEl(root, 5);
     // insertEl(root, 2);    // !LL Rotation
 
-    root = insertEl(root, 10);
-    insertEl(root, 20);
-    insertEl(root, 30);
+    // root = insertEl(root, 10);
+    // insertEl(root, 20);
+    // insertEl(root, 30);     //!RR Rotation
+
+    // root = insertEl(root, 10);
+    // insertEl(root, 30);
+    // insertEl(root, 20); //! RL Rotation
 
     printf("LC : %d |  root : %d  height : %d| RC : %d", root->LC->data, root->data, root->height, root->RC->data);
 

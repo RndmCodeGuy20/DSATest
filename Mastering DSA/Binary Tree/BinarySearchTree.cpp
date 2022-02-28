@@ -103,7 +103,7 @@ struct node *delEl(struct node *ptr, int key)
     {
         return NULL;
     }
-    
+
     if (ptr->LC == NULL && ptr->RC == NULL)
     {
         if (ptr == root)
@@ -216,6 +216,9 @@ int main()
     {
         printf("\nFound at position : NULL\n");
     }
+
+    delEl(root, 10);
+    inOrder(root);
 
     return 0;
 }
