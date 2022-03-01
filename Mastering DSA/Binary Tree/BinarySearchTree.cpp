@@ -63,7 +63,7 @@ int Height(struct node *ptr)
         return 0;
     }
 
-    int x, y;
+    static int x, y;
 
     x = Height(ptr->LC);
     y = Height(ptr->RC);
@@ -127,13 +127,13 @@ struct node *delEl(struct node *ptr, int key)
     {
         if (Height(ptr->LC) > Height(ptr->RC))
         {
-            q = InorderPred(ptr->LC);
+            q = InorderPred(ptr);
             ptr->data = q->data;
             ptr->LC = delEl(ptr->LC, q->data);
         }
         else
         {
-            q = InorderSucc(ptr->RC);
+            q = InorderSucc(ptr);
             ptr->data = q->data;
             ptr->RC = delEl(ptr->RC, q->data);
         }
