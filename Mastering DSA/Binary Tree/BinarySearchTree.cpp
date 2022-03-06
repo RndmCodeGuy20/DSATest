@@ -142,13 +142,13 @@ struct node *delEl(struct node *ptr, int key)
     return ptr;
 }
 
-void preorder(struct node *ptr)
+void preOrder(struct node *ptr)
 {
     if (ptr != NULL)
     {
         printf("%d   ", ptr->data);
-        preorder(ptr->LC);
-        preorder(ptr->RC);
+        preOrder(ptr->LC);
+        preOrder(ptr->RC);
     }
 }
 
