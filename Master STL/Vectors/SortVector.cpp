@@ -18,5 +18,19 @@ int main()
 
     //$ begin() and end() are called iterators and are somewhat similar to pointers.
 
+    sort(vE.begin(), vE.end());
+
+    for (int i = 0; i < vE.size(); i++)
+    {
+        cout << vE[i] << " ";
+    }
+
+    // sort(vE.end(), vE.begin());
+
+    // for (int i = 0; i < vE.size(); i++)
+    // {
+    //     cout << vE[i] << " ";
+    // }
+
     return 0;
 }
