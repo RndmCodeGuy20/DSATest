@@ -1,9 +1,9 @@
 /**
  * @file SimpleStacks.cpp
  * @author Shantanu Mane | @RndmCodeGuy20 (shantanu.mane.200@outlook.com)
- * @brief
+ * @brief A C/C++ program to calculate the maximum sum of elements in three stacks.
  * @version 0.1
- * @date 05-06-2022
+ * @date 01-06-2022
  *
  * @copyright Copyright (c) 2022
  *
@@ -55,14 +55,14 @@ int sumStk(struct Stack stack)
 int main()
 {
     struct Stack stackOne;
-    int stackOneVal[] = {3, 2, 1, 4, 5};
+    int stackOneVal[] = {7, 2, 1, 4, 5};
     // top of the stack for this :   👆
 
     struct Stack stackTwo;
-    int stackTwoVal[] = {5, 1, 4};
+    int stackTwoVal[] = {5, 1, 8};
 
     struct Stack stackThree;
-    int stackThreeVal[] = {5, 1, 3};
+    int stackThreeVal[] = {6, 1, 3};
 
     createStack(&stackOne, 5, stackOneVal);
     createStack(&stackTwo, 3, stackTwoVal);
@@ -80,6 +80,12 @@ int main()
         dispStack(stackTwo);
         cout << endl;
         dispStack(stackThree);
+
+        if (stackOne.top == -1 || stackTwo.top == -1 || stackThree.top == -1)
+        {
+            sumStacks[0] = sumStacks[1] = sumStacks[2] = -1;
+            break;
+        }
 
         if (sumStacks[0] == sumStacks[1] && sumStacks[1] == sumStacks[2])
         {
@@ -100,7 +106,14 @@ int main()
         }
     }
 
-    printf("\n%d", sumStacks[0]);
+    if (sumStacks[0] != -1)
+    {
+        printf("\n%d", sumStacks[0]);
+    }
+    else
+    {
+        printf("\nMaximum sum is 0 for this case!");
+    }
 
     return 0;
 }
