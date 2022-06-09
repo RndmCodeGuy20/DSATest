@@ -5,9 +5,11 @@
  */
 
 // @lc code=start
-class Solution {
+class Solution
+{
 public:
-    vector<int> twoSum(vector<int> &nums, int target) {
+    vector<int> twoSum(vector<int> &nums, int target)
+    {
         vector<int> rez;
 
         for (int i = 0; i < nums.size(); i++)
@@ -19,12 +21,10 @@ public:
                     rez.push_back(i);
                     rez.push_back(j);
                 }
-                
             }
         }
-        
+
         return rez;
     }
 };
 // @lc code=end
-

@@ -1,8 +1,9 @@
 /**
- * @file SimpleStacks.cpp
- * @author Shantanu Mane | @RndmCodeGuy20 (shantanu.mane.200@outlook.com)
+ * @file ThreeStackMaxSum.cpp
+ * @author Shantanu Mane (manesg@rknec.edu) - E63
+ * @author Sagar Pathak (pathakss@rknec.edu) - E60
  * @brief A C/C++ program to calculate the maximum sum of elements in three stacks.
- * @version 0.1
+ * @version 1.3.2
  * @date 01-06-2022
  *
  * @copyright Copyright (c) 2022
@@ -12,6 +13,10 @@
 #include <iostream>
 using namespace std;
 
+/**
+ * @brief Create a struct to represent a stack.
+ *
+ */
 struct Stack
 {
     int *S;
@@ -19,6 +24,14 @@ struct Stack
     int top;
 };
 
+/**
+ * @brief Create a Stack object
+ *
+ * @param stack - A pointer to a Stack object
+ * @param size - size of the stack
+ * @param values - values to be pushed into the stack
+ * @return Nothing is returned
+ */
 void createStack(struct Stack *stack, int size, int values[])
 {
     stack->size = size;
@@ -31,6 +44,12 @@ void createStack(struct Stack *stack, int size, int values[])
     }
 }
 
+/**
+ * @brief Function to display the stack.
+ *
+ * @param stack
+ * @return Nothing is returned
+ */
 void dispStack(struct Stack stack)
 {
     printf("Stack : TOS ->  ");
@@ -40,6 +59,12 @@ void dispStack(struct Stack stack)
     }
 }
 
+/**
+ * @brief Function to find the sum of elements in the stack.
+ *
+ * @param stack
+ * @return int - sum of elements in the stack
+ */
 int sumStk(struct Stack stack)
 {
     int sum = 0;
@@ -52,22 +77,30 @@ int sumStk(struct Stack stack)
     return sum;
 }
 
+/**
+ * @brief Main function, which calls all the other functions.
+ *
+ * @return int
+ */
 int main()
 {
+    // Create three stacks - one for each of the three stacks.
     struct Stack stackOne;
-    int stackOneVal[] = {7, 2, 1, 4, 5};
+    int stackOneVal[] = {3, 2, 1, 5, 4};
     // top of the stack for this :   👆
 
     struct Stack stackTwo;
-    int stackTwoVal[] = {5, 1, 8};
+    int stackTwoVal[] = {5, 1, 4};
 
     struct Stack stackThree;
-    int stackThreeVal[] = {6, 1, 3};
+    int stackThreeVal[] = {5, 1, 3};
 
+    // Create the objects of the stack.
     createStack(&stackOne, 5, stackOneVal);
     createStack(&stackTwo, 3, stackTwoVal);
     createStack(&stackThree, 3, stackThreeVal);
 
+    // sum of the elements in the stack is stored in this array.
     int sumStacks[3] = {sumStk(stackOne), sumStk(stackTwo), sumStk(stackThree)};
 
     while (true)
@@ -92,6 +125,7 @@ int main()
             break;
         }
 
+        // Find the maximum sum stack of the three stacks, without sorting the sum array.
         if (sumStacks[0] >= sumStacks[1] && sumStacks[0] >= sumStacks[2])
         {
             sumStacks[0] -= stackOne.S[stackOne.top--];
@@ -108,7 +142,7 @@ int main()
 
     if (sumStacks[0] != -1)
     {
-        printf("\n%d", sumStacks[0]);
+        printf("\nMaximum sum of the three stacks is : %d", sumStacks[0]);
     }
     else
     {
