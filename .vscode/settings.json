@@ -43,7 +43,17 @@
     "xstring": "cpp",
     "xtr1common": "cpp",
     "xutility": "cpp",
-    "vector": "cpp"
+    "vector": "cpp",
+    "chrono": "cpp",
+    "*.tcc": "cpp",
+    "list": "cpp",
+    "array": "cpp",
+    "bitset": "cpp",
+    "string_view": "cpp",
+    "regex": "cpp",
+    "valarray": "cpp",
+    "ranges": "cpp",
+    "span": "cpp"
   },
   "C_Cpp.errorSquiggles": "Enabled",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
