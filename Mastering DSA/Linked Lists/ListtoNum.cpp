@@ -1,4 +1,5 @@
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct ListNode
@@ -7,7 +8,7 @@ struct ListNode
     ListNode *next;
 };
 
-ListNode *createList(ListNode *head, int arr[], int n)
+ListNode *createList(ListNode *head, vector<int> arr, int n)
 {
     ListNode *ptr, *newNode;
 
@@ -53,9 +54,12 @@ int ListtoNum(ListNode *list)
 
 int main()
 {
-    int arr[] = {0};
+    vector<int> arr = {2, 4, 3};
+    vector<int> arr2 = {5, 6, 4};
+
     ListNode *ptr;
-    ListNode *list = createList(list, arr, 0);
+    ListNode *list = createList(list, arr, arr.size());
+    ListNode *list2 = createList(list, arr2, arr2.size());
 
     ptr = list;
 
@@ -65,7 +69,39 @@ int main()
         ptr = ptr->next;
     }
 
-    printf("\n%d", ListtoNum(list));
+    cout << endl;
+
+    ptr = list2;
+
+    while (ptr)
+    {
+        printf(" %d ->", ptr->val);
+        ptr = ptr->next;
+    }
+
+    cout << ListtoNum(list) << " + " << ListtoNum(list2) << " = " << ListtoNum(list) + ListtoNum(list2)
+         << endl;
+
+    int rez = ListtoNum(list) + ListtoNum(list2);
+    vector<int> rezarr;
+    // int n;
+
+    while (rez)
+    {
+        // n = rez % 10;
+        rezarr.push_back(rez % 10);
+        rez /= 10;
+    }
+
+    ListNode *rezlist = createList(rezlist, rezarr, rezarr.size());
+
+    ptr = rezlist;
+
+    while (ptr)
+    {
+        printf(" %d ->", ptr->val);
+        ptr = ptr->next;
+    }
 
     return 0;
 }
