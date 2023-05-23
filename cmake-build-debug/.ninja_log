@@ -1,0 +1,9 @@
+# ninja log v5
+24	890	6863865309946144	CMakeFiles/DSATest.dir/Examples/Hello.c.obj	fe2be2f7220ff3f4
+42	1291	6863865313901748	CMakeFiles/DSATest.dir/Examples/PointersFun.cpp.obj	9746ab57ead3e3c7
+4	1300	6863865313901748	CMakeFiles/DSATest.dir/Examples/CallMall.cpp.obj	8d6a2bd4015396cd
+19	2366	6863865324747743	CMakeFiles/DSATest.dir/DSA_Made_Easy/Recursion_and_Backtracking/PrintFib.cpp.obj	3bf429cfda8b1e93
+33	2378	6863865324717837	CMakeFiles/DSATest.dir/Examples/palindrome.cpp.obj	fdf593ce45ed9f1d
+11	2423	6863865325308202	CMakeFiles/DSATest.dir/DSA_Made_Easy/Recursion_and_Backtracking/PrintFactorial.cpp.obj	17c75f42c8e720d6
+892	3064	6863865331732462	CMakeFiles/DSATest.dir/LeetCode_Solutions/practice/addnum.cpp.obj	a424940d6ec226d1
+1300	3100	6863865332087030	CMakeFiles/DSATest.dir/LeetCode_Solutions/practice/init2dvect.cpp.obj	fe8501facaf6c19e
